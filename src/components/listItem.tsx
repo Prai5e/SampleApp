@@ -1,10 +1,7 @@
 import React from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-
-interface customObj {
-  [key: string]: any;
-}
+import {customObj} from '../interface';
 
 const Data: Array<object> = [
   {
@@ -45,8 +42,6 @@ const Data: Array<object> = [
   },
 ];
 
-const Datao = [];
-
 const Empty = () => (
   <View>
     <Text>Empty</Text>
@@ -62,15 +57,9 @@ const Item = function (props: customObj): React.JSX.Element {
       <Text style={styles.temp}>{min}</Text>
       <Text style={styles.temp}>{max}</Text>
     </View>
-    // return (
-    //   <FlatList
-    //     data={Data}
-    //     renderIem={}
-    //     >
-    //   </FlatList>
   );
 };
-const renderItem = ({item}) => (
+const renderItem = ({item}: customObj) => (
   <Item
     conditon={item.weather[0].main}
     dt_txt={item.dt_txt}
@@ -90,7 +79,7 @@ function List(): React.JSX.Element {
       />
     </>
   );
-};
+}
 
 const styles = StyleSheet.create({
   item: {
