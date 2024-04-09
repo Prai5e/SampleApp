@@ -5,10 +5,11 @@ import {customObj} from '../interface';
 
 const IconText = function (props: customObj) {
   const {iconName, iconColor, bodyText, bodyTextStyles} = props;
+  const {textTheme} = styles;
   return (
     <>
       <Feather name={iconName} size={50} color={iconColor} />
-      <Text style={(styles.textTheme, bodyTextStyles)}>{bodyText}</Text>
+      <Text style={[textTheme, bodyTextStyles]}>{bodyText}</Text>
     </>
   );
 };

@@ -1,23 +1,13 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-// import CurrentWeather from './src/screens/currentWeather';
-import UpcomingWeather from './src/screens/upcomingWeather';
-import City from './src/screens/city';
+import {NavigationContainer} from '@react-navigation/native';
+import Tabs from './src/components/tabs';
 
 const App = function (): React.JSX.Element {
   return (
-    <View style={styles.container}>
-      {/* <UpcomingWeather /> */}
-      <City />
-    </View>
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgb(90, 3, 50)',
-  },
-});
 
 export default App;
