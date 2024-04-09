@@ -1,23 +1,43 @@
 import React from 'react';
 import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import RowText from '../components/rowText';
 
 const CurrentWeather = function (): React.JSX.Element {
+  const {
+    temp,
+    container,
+    feels,
+    wrapper,
+    highLow,
+    highLowWrapper,
+    bodyWrapper,
+    description,
+    message,
+  } = styles;
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <View style={styles.container}>
+    <SafeAreaView style={wrapper}>
+      <View style={container}>
         {/* <Text style={styles.temp}>Current Weather</Text> */}
         <Icon name="sun" size={100} color="black" />
-        <Text style={styles.temp}>0</Text>
-        <View style={styles.wrapper}>
-          <Text style={styles.feels}>Feels like -3</Text>
-          <Text style={styles.highLow}>High: 8 low: 9</Text>
-        </View>
+        <Text style={temp}>0</Text>
+        <Text style={feels}>Feels like -3</Text>
+        <RowText
+          style={highLow}
+          messageOne={'High: 8 '}
+          messageTwo={'low: 9'}
+          containerStyles={highLowWrapper}
+          messageOneStyles={highLow}
+          messageTwoStyles={highLow}
+        />
       </View>
-      <View style={styles.bodyWrapper}>
-        <Text style={styles.description}>Its Sunny</Text>
-        <Text style={styles.message}>Its perfect Weathger</Text>
-      </View>
+      <RowText
+        messageOne={'Its Sunny'}
+        messageTwo={'Its perfect Weather'}
+        containerStyles={bodyWrapper}
+        messageOneStyles={description}
+        messageTwoStyles={message}
+      />
     </SafeAreaView>
   );
 };
@@ -34,7 +54,6 @@ const styles = StyleSheet.create({
   highLow: {
     color: 'black',
     fontSize: 20,
-    flexDirection: 'row',
   },
   container: {
     alignItems: 'center',
@@ -44,6 +63,9 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: 'pink',
     flex: 1,
+  },
+  highLowWrapper: {
+    flexDirection: 'row',
   },
   bodyWrapper: {
     justifyContent: 'flex-end',
